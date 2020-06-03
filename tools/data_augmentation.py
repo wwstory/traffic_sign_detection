@@ -8,8 +8,7 @@ from math import sin, cos, atan2, pi, sqrt
 from config import opt
 
 need_list = ['background', 'left', 'right']
-filter_save_list = ['background']   # 会拉大background和其它类训练集的数量差距
-filter_save_list = []   # 会拉大background和其它类训练集的数量差距
+# filter_save_list = ['background']   # 会拉大background和其它类训练集的数量差距
 
 
 def augmentation(compose, in_dir, out_dir):
@@ -23,10 +22,10 @@ def augmentation(compose, in_dir, out_dir):
     for img_path, img_name in zip(imgs_path, imgs_name):
         if img_name not in need_list:
             continue
-        if img_name in filter_save_list: # 过滤但需要复制一份
-            img = cv2.imread(img_path)
-            cv2.imwrite(os.path.join(out_dir, img_path.split('/')[-1]), img)
-            continue
+        # if img_name in filter_save_list: # 过滤但需要复制一份
+        #     img = cv2.imread(img_path)
+        #     cv2.imwrite(os.path.join(out_dir, img_path.split('/')[-1]), img)
+        #     continue
 
         img = cv2.imread(img_path)
         compose([img], [img_name])

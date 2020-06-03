@@ -3,7 +3,7 @@
 
 定位目标 -> 特征提取 -> 分类
 
-- 定位：使用颜色，白平衡，膨胀腐蚀，面积，长宽比
+- 定位：白平衡，HSV颜色过滤，膨胀腐蚀，面积，长宽比
 - 特征提取：HOG
 - 分类：SVM
 
@@ -21,22 +21,15 @@
 ./train.sh
 
 # test
-./run
+./run.sh
 ```
 
-# 手动执行的步骤
+# 扩展类别
 
-split_dataset.py
-
-crop_region.py
-
-data_augmentation.py
-
-extract_hog_feature.py
-
-train_svm.py
-
-test_image.py
+1. 将新的类别图片放入`IMAGES/`，标注放入`ANNOS/`。
+2. 向`tools/config.py`中的`classes_names`和`label_names`添加新类别。
+3. 修改`config.py`中的`classes_num`，改为类别数量。
+4. 向`hog_svm.py`中的`classes_names`添加新类别。
 
 # ref
 
@@ -44,7 +37,7 @@ test_image.py
 
 [object-detection][2]
 
-[orgin github][3]
+[ref github][3]
 
 [标注工具][4]
 

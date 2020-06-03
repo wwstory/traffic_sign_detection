@@ -4,9 +4,6 @@ class Config:
     # classes
     classes_num = 3
 
-    # control
-    is_train = True
-
     # dir path
     HOME_DIR = '/home/nevc/'
     DATASET_DIR = HOME_DIR + 'datasets/'

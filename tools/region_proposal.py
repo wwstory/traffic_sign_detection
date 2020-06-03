@@ -7,7 +7,7 @@ from random import randint
 from config import opt
 
 
-def crop_region(in_dir, save_dir, filter_list=[], random_crop_background=True):
+def region_proposal(in_dir, save_dir, filter_list=[], random_crop_background=True):
     img_dir = os.path.join(in_dir, opt.IMAGE_NAME)
     ann_dir = os.path.join(in_dir, opt.ANNO_NAME)
     anns_name = os.listdir(ann_dir)
@@ -167,7 +167,7 @@ if __name__ == "__main__":
     
     print('start crop ...')
     # for train
-    crop_region(train_dir, train_save_dir, filter_list, random_crop_background)
+    region_proposal(train_dir, train_save_dir, filter_list, random_crop_background)
     # for test
-    crop_region(test_dir, test_save_dir, filter_list, random_crop_background)
+    region_proposal(test_dir, test_save_dir, filter_list, random_crop_background)
     print('end crop!')
